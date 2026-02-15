@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "category": "Intro",
+    "question": "Which AWS service would simplify the migration of a database to AWS?",
+    "answer": "AWS Database Migration Service (DMS) - helps migrate databases to AWS quickly and securely with minimal downtime."
+  },
+  {
+    "id": 2,
+    "category": "Intro",
+    "question": "How do websites work?",
+    "answer": "There is a network between us (client) and the server."
+  },
+  {
+    "id": 3,
+    "category": "Intro",
+    "question": "How does the server find its clients? (vice-versa)",
+    "answer": "They both need to have an IP address."
+  },
+  {
+    "id": 4,
+    "category": "Intro",
+    "question": "What are the main components of a server?",
+    "answer": "CPU (compute power), RAM (memory), storage, and networking components. AWS Cloud provides all of these resources on-demand."
+  },
+  {
+    "id": 5,
+    "category": "Intro",
+    "question": "What do CPU and RAM provide together?",
+    "answer": "Compute capacity - the ability to process and temporarily store data for applications."
+  },
+  {
+    "id": 6,
+    "category": "Intro",
+    "question": "What is a network in IT?",
+    "answer": "A network consists of interconnected devices (cables, routers, switches, and servers) that communicate and share resources."
+  },
+  {
+    "id": 7,
+    "category": "Intro",
+    "question": "What is a router in IT?",
+    "answer": "A networking device that forwards data packets between computer networks by determining the best path for data transmission."
+  },
+  {
+    "id": 8,
+    "category": "Intro",
+    "question": "What is a switch in IT?",
+    "answer": "A networking device that receives packets and forwards them to the correct destination device within a local network."
+  },
+  {
+    "id": 9,
+    "category": "Intro",
+    "question": "How do routers and switches work together in a network?",
+    "answer": "Client sends request → Router forwards packets between networks → Switch directs packets to correct device within the local network."
+  },
+  {
+    "id": 10,
+    "category": "Intro",
+    "question": "What is cloud computing?",
+    "answer": "Cloud computing is the on-demand delivery of compute power, database storage, applications, and other IT resources. This sort of services platform is a pay-as-you-go pricing. You can provision exactly the right type and size of computing as you need."
+  },
+  {
+    "id": 11,
+    "category": "Intro",
+    "question": "What does cloud computing simplify?",
+    "answer": "Access to servers, storage, databases, and application services through a simple web interface without managing physical infrastructure."
+  },
+  {
+    "id": 12,
+    "category": "Cloud Computing",
+    "question": "What are deployment models of the cloud?",
+    "answer": "Private cloud, public and hybrid"
+  },
+  {
+    "id": 13,
+    "category": "Cloud Computing",
+    "question": "What is a private cloud?",
+    "answer": "Cloud services used by a single organization, not exposed to the public. The organization has complete control over the sensitive applications and meet specific business needs. Example is Rackspace."
+  },
+  {
+    "id": 14,
+    "category": "Cloud Computing",
+    "question": "What is a public cloud?",
+    "answer": "Cloud resources owned and operated by a third-party cloud service provider delivered over the Internet. Example is Google Cloud, AWS, Azure."
+  },
+  {
+    "id": 15,
+    "category": "Cloud Computing",
+    "question": "What is a hybrid cloud?",
+    "answer": "Keep some servers on premises and extend some capabilities to the Cloud. You have control over sensitive assets in your private infrastructure. Example is AWS to your custom infrastructure."
+  },
+  {
+    "id": 16,
+    "category": "Cloud Computing",
+    "question": "What are the five characteristics of cloud computing?",
+    "answer": "1) On-demand self-service, 2) Broad network access, 3) Multi-tenancy and resource pooling, 4) Rapid elasticity and scalability, 5) Measured service."
+  },
+  {
+    "id": 17,
+    "category": "Cloud Computing",
+    "question": "What is on-demand self-service?",
+    "answer": "Users can provision and manage cloud resources automatically without requiring human interaction from the service provider."
+  },
+  {
+    "id": 18,
+    "category": "Cloud Computing",
+    "question": "What is broad network access?",
+    "answer": "Resources available over the network and can be accessed by diverse client platforms."
+  },
+  {
+    "id": 19,
+    "category": "Cloud Computing",
+    "question": "What is multi-tenancy and resource pooling?",
+    "answer": "Multiple customers can share the same infrastructure and applications with security and privacy. Multiple customers are also serviced from the same physical resources."
+  },
+  {
+    "id": 20,
+    "category": "Cloud Computing",
+    "question": "What is rapid elasticity and scalability?",
+    "answer": "Automatically and quickly acquire and dispose resources when needed. Quickly and easily scale based on demand."
+  },
+  {
+    "id": 21,
+    "category": "Cloud Computing",
+    "question": "What are cloud measured services?",
+    "answer": "Usage is measured, users pay correctly for what they have used."
+  },
+  {
+    "id": 22,
+    "category": "Cloud Computing",
+    "question": "What are six advantages of cloud computing?",
+    "answer": "a. Cloud computing trades CAPEX (buying hardware) for OPEX (a monthly subscription). This reduces the TCO because you only pay for what you actually use. b. Benefit from massive economies of scale where prices are reduced as AWS is more efficient due to large scale. c. Stop guessing capacity where scale is now based on actual measured usage. d. Increased speed and agility. e. Stop spending money and maintaining data centers. f. Go global in minutes leveraging the AWS global infrastructure."
+  },
+  {
+    "id": 23,
+    "category": "Cloud Computing",
+    "question": "Problems solved by the Cloud?",
+    "answer": "Flexibility, cost-effectiveness, elasticity, high-availability and fault tolerance, and agility."
+  },
+  {
+    "id": 24,
+    "category": "Cloud Computing",
+    "question": "Different types of cloud computing?",
+    "answer": "a. Infrastructure as a Service (IaaS). Provide building blocks for Cloud IT, networking, computers, data storage, flexibility and easily parallel with traditional on-premise IT. b. Platform as a Service (PaaS) removes the need for your organization to manage underlying infrastructure. It helps you focus on the deployment and management of your applications. c. Software as a Service (SaaS) is a completed product that is run and managed by the service provider."
+  },
+  {
+    "id": 25,
+    "category": "Cloud Computing",
+    "question": "What would you have to manage as an On-premises?",
+    "answer": "Applications, data, runtime, middleware, O/S, virtualization, servers, storage and networking."
+  },
+  {
+    "id": 26,
+    "category": "Cloud Computing",
+    "question": "What would you manage as IaaS?",
+    "answer": "Applications, data, runtime, middleware, and O/S. Other virtualization, servers, storage and networking will be managed by AWS"
+  },
+  {
+    "id": 27,
+    "category": "Cloud Computing",
+    "question": "What would you manage with PaaS?",
+    "answer": "Application and data. Others such as runtime, middleware, O/S, virtualization, servers, storage and networking will be managed by AWS"
+  },
+  {
+    "id": 28,
+    "category": "Cloud Computing",
+    "question": "What would be managed with SaaS?",
+    "answer": "Everything - application, data, runtime, middleware, O/S, virtualization, server, storage and networking."
+  },
+  {
+    "id": 29,
+    "category": "Cloud Computing",
+    "question": "Example of IaaS",
+    "answer": "AWS EC2, GCP, Azure, Rackspace, Digital Ocean, Linode"
+  },
+  {
+    "id": 30,
+    "category": "Cloud Computing",
+    "question": "Example of PaaS",
+    "answer": "AWS Elastic Beanstalk, Heroku, Google App Engine (GCP), Window Azure (Microsoft)"
+  },
+  {
+    "id": 31,
+    "category": "Cloud Computing",
+    "question": "Example of SaaS",
+    "answer": "Many AWS service (ex: Rekognition for ML), Google App (Gmail), Dropbox, Zoom."
+  },
+  {
+    "id": 32,
+    "category": "Cloud Computing",
+    "question": "What are AWS pricing fundamentals?",
+    "answer": "1) Compute: Pay for compute time, 2) Storage: Pay for data stored, 3) Data transfer OUT of AWS (data IN is free). This pay-as-you-go model reduces costs compared to traditional IT."
+  },
+  {
+    "id": 33,
+    "category": "Cloud Computing",
+    "question": "What is cloud computing?",
+    "answer": "The practice of using a network of remote servers hosted on the Internet to store, manage and process data, rather than a local server or a personal computer."
+  },
+  {
+    "id": 34,
+    "category": "AWS Cloud Locations",
+    "question": "How do you choose an AWS region?",
+    "answer": "It depends. However, there are factors such as- compliance, proximity, available services and pricing. Compliance with data governance and legal requirements: data never leaves a region without your explicit permission. Proximity to customers to reduce latency. Available services within a region: new services and new features aren't available in every Region. Pricing also varies region to region and is transparent in the service pricing page."
+  },
+  {
+    "id": 35,
+    "category": "AWS Cloud Locations",
+    "question": "What are AWS Availability Zones?",
+    "answer": "Each AWS Region has multiple Availability Zones (typically 3, minimum 3, maximum 6). Each AZ consists of one or more data centers with redundant power, networking, and connectivity. AZs are isolated from disasters but connected with high-bandwidth, low-latency networking."
+  },
+  {
+    "id": 36,
+    "category": "AWS Cloud Locations",
+    "question": "What are AWS Points of Presence (Edge Locations)?",
+    "answer": "AWS has 400+ Points of Presence (Edge Locations and Regional Caches) in 90+ cities across 40+ countries. They cache content (images, videos) close to end-users to deliver it with low latency via CloudFront CDN."
+  },
+  {
+    "id": 37,
+    "category": "AWS Cloud Locations",
+    "question": "AWS Global Services",
+    "answer": "Identity and Access Management (IAM), Route 53 (DNS Service), CloudFront (Content Delivery Network) and WAF (Web Application Firewall)"
+  },
+  {
+    "id": 38,
+    "category": "AWS Cloud Locations",
+    "question": "AWS Region-scoped",
+    "answer": "Amazon EC2 (Iaas), Elastic Bean Stalk (PaaS), Lambda (FaaS), Rekognition (SaaS)"
+  },
+  {
+    "id": 39,
+    "category": "AWS Cloud Locations",
+    "question": "How to know if a service is available in your region?",
+    "answer": "AWS has a region table which is /global-infrastructure/regional-product-services"
+  },
+  {
+    "id": 40,
+    "category": "AWS Cloud Locations",
+    "question": "What is the hierarchy of AWS infrastructure?",
+    "answer": "Regions (largest) → Availability Zones → Edge Locations (smallest, for content delivery)"
+  },
+  {
+    "id": 41,
+    "category": "AWS Cloud Locations",
+    "question": "What are Edge Locations?",
+    "answer": "Edge Locations: These are caching sites used to deliver content with lower latency to end users. They are located within Availability Zones but are not used for deploying infrastructure or hosting applications directly. Their primary purpose is content delivery, not infrastructure deployment."
+  },
+  {
+    "id": 42,
+    "category": "AWS Cloud Locations",
+    "question": "What are Regions?",
+    "answer": "Regions: These are larger geographical areas that consist of multiple Availability Zones. While they are important for geographic distribution and compliance, they do not physically contain the data centers themselves. Instead, regions are collections of Availability Zones."
+  },
+  {
+    "id": 43,
+    "category": "AWS Cloud Locations",
+    "question": "What are Availability Zones (AZ)?",
+    "answer": "Infrastructure areas consisting of one or more data centers with redundant power, networking, and connectivity, enabling high availability and fault tolerance for deployed resources."
+  },
+  {
+    "id": 44,
+    "category": "Shared Responsibility",
+    "question": "Customer Responsibility",
+    "answer": "Responsibility for the security IN the cloud. Examples- Customer data, platform, applications, IAM, O/S, network and firewall configuration, client-side data, encryption, data integrity and auth, server-side encryptions, file system and data, networking traffic protections (encryptions, integrity, identity)"
+  },
+  {
+    "id": 45,
+    "category": "Shared Responsibility",
+    "question": "AWS Responsibility",
+    "answer": "Responsible for security OF cloud. Example - Software (Compute, Storage, Database, Networking), Hardware and AWS Global Infrastructure (Regions, AZ, Edge Location)"
+  }
+]

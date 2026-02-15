@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS CCP CLF-C02 2026 Flashcards</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>AWS CCP Flashcards</h1>
+            <div class="header-controls">
+                <div class="category-filter">
+                    <label for="category-select">Category:</label>
+                    <select id="category-select">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <div class="flip-hint">
+            💡 Click or press Space to flip | Use ← → arrow keys to navigate
+        </div>
+
+        <div class="card-container">
+            <div class="card" id="flashcard">
+                <div class="card-face card-front">
+                    <span class="card-label">Question</span>
+                    <div class="question" id="question">Loading flashcards...</div>
+                </div>
+                <div class="card-face card-back">
+                    <span class="card-label">Answer</span>
+                    <div class="answer" id="answer">Loading...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button id="prev-btn">← Previous</button>
+            <button id="next-btn">Next →</button>
+        </div>
+
+        <div class="progress" id="progress">Card 0 of 0</div>
+    </div>
+
+    <script src="static/script.js"></script>
+</body>
+
+</html>
