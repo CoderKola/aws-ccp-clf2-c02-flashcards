@@ -9,47 +9,75 @@
 </head>
 
 <body>
-    <div class="container">
-        <header class="header">
-            <h1>AWS CCP Flashcards</h1>
-            <div class="header-controls">
-                <div class="category-filter">
-                    <label for="category-select">Category:</label>
-                    <select id="category-select">
-                        <option value="all">All Categories</option>
-                    </select>
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>Notes</h2>
+            <button id="close-sidebar" class="close-sidebar">&times;</button>
+        </div>
+        <nav id="sidebar-nav" class="sidebar-nav">
+            <!-- Sidebar content will be injected here -->
+        </nav>
+    </aside>
+
+    <div class="main-content">
+        <div class="container">
+            <header class="header">
+                <h1>AWS CCP Flashcards</h1>
+                <div class="header-controls">
+                    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Toggle notes navigation">
+                        <span class="hamburger">☰</span>
+                    </button>
+                    <div class="category-filter">
+                        <label for="category-select">Category:</label>
+                        <select id="category-select">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                    <button id="mode-toggle" class="mode-toggle">Switch to Notes</button>
                 </div>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <span class="theme-icon">🌙</span>
-                </button>
+            </header>
+
+            <div id="flashcard-mode">
+                <div class="flip-hint">
+                    💡 Click or press Space to flip | Use ← → arrow keys to navigate
+                </div>
+
+                <div class="card-container">
+                    <div class="card" id="flashcard">
+                        <div class="card-face card-front">
+                            <span class="card-label">Question</span>
+                            <div class="question" id="question">Loading flashcards...</div>
+                        </div>
+                        <div class="card-face card-back">
+                            <span class="card-label">Answer</span>
+                            <div class="answer" id="answer">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button id="prev-btn">← Previous</button>
+                    <button id="next-btn">Next →</button>
+                </div>
+
+                <div class="progress" id="progress">Card 0 of 0</div>
             </div>
-        </header>
 
-        <div class="flip-hint">
-            💡 Click or press Space to flip | Use ← → arrow keys to navigate
-        </div>
-
-        <div class="card-container">
-            <div class="card" id="flashcard">
-                <div class="card-face card-front">
-                    <span class="card-label">Question</span>
-                    <div class="question" id="question">Loading flashcards...</div>
-                </div>
-                <div class="card-face card-back">
-                    <span class="card-label">Answer</span>
-                    <div class="answer" id="answer">Loading...</div>
+            <div id="notes-mode" class="notes-container" style="display: none;">
+                <div id="notes-content" class="markdown-body">
+                    <!-- Notes will be injected here -->
+                    <p class="placeholder-text">Select a section from the sidebar to view notes.</p>
                 </div>
             </div>
         </div>
-
-        <div class="controls">
-            <button id="prev-btn">← Previous</button>
-            <button id="next-btn">Next →</button>
-        </div>
-
-        <div class="progress" id="progress">Card 0 of 0</div>
     </div>
 
+    <div id="overlay" class="overlay"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="static/script.js"></script>
 </body>
 

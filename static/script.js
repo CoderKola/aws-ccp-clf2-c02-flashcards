@@ -1,8 +1,3 @@
-let cards = [];
-let filteredCards = [];
-let currentIndex = 0;
-let isFlipped = false;
-
 // DOM Elements
 const cardElement = document.getElementById('flashcard');
 const questionElement = document.getElementById('question');
@@ -13,6 +8,23 @@ const themeIcon = document.querySelector('.theme-icon');
 const prevButton = document.getElementById('prev-btn');
 const nextButton = document.getElementById('next-btn');
 const progressElement = document.getElementById('progress');
+const modeToggle = document.getElementById('mode-toggle');
+const flashcardMode = document.getElementById('flashcard-mode');
+const notesMode = document.getElementById('notes-mode');
+const notesContent = document.getElementById('notes-content');
+const sidebar = document.getElementById('sidebar');
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const closeSidebar = document.getElementById('close-sidebar');
+const sidebarNav = document.getElementById('sidebar-nav');
+const overlay = document.getElementById('overlay');
+
+// State
+let cards = [];
+let filteredCards = [];
+let currentIndex = 0;
+let isFlipped = false;
+let isNotesMode = false;
+let notesData = '';
 
 // Theme management
 function initTheme() {
@@ -141,8 +153,104 @@ function nextCard() {
     }
 }
 
-// Keyboard navigation
+// --- Notes Features ---
+
+async function loadNotes() {
+    try {
+        const response = await fetch('notes.md');
+        if (!response.ok) throw new Error('Failed to load notes');
+        notesData = await response.text();
+        renderNotes(notesData);
+    } catch (error) {
+        console.error('Error loading notes:', error);
+        notesContent.innerHTML = '<p>Error loading notes. Please make sure "notes.md" exists.</p>';
+    }
+}
+
+function renderNotes(markdown) {
+    // Basic Markdown rendering is handled by marked.js which is included in index.html
+    // however, we want to intercept headers to build the sidebar navigation
+
+    // Parse markdown to HTML
+    notesContent.innerHTML = marked.parse(markdown);
+
+    // Generate Sidebar Navigation
+    generateSidebarNav();
+}
+
+function generateSidebarNav() {
+    sidebarNav.innerHTML = '';
+    const headers = notesContent.querySelectorAll('h1');
+
+    if (headers.length === 0) {
+        sidebarNav.innerHTML = '<p style="padding: 20px; color: var(--text-muted);">No sections found.</p>';
+        return;
+    }
+
+    headers.forEach((header, index) => {
+        // Add ID to header for scrolling
+        const headerId = `section-${index}`;
+        header.id = headerId;
+
+        const navItem = document.createElement('a');
+        navItem.className = 'nav-item';
+        navItem.textContent = header.textContent;
+        navItem.onclick = () => {
+            scrollToSection(headerId);
+            closeSidebarMenu();
+        };
+
+        sidebarNav.appendChild(navItem);
+    });
+}
+
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Update active state in sidebar
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+
+        // We can't easily map back to the nav item without more complex logic, 
+        // but for now, the scrolling is the key part.
+    }
+}
+
+function toggleMode() {
+    isNotesMode = !isNotesMode;
+
+    if (isNotesMode) {
+        flashcardMode.style.display = 'none';
+        notesMode.style.display = 'block';
+        modeToggle.textContent = 'Switch to Flashcards';
+        document.body.classList.add('notes-active');
+
+        if (!notesData) {
+            loadNotes();
+        }
+    } else {
+        flashcardMode.style.display = 'block';
+        notesMode.style.display = 'none';
+        modeToggle.textContent = 'Switch to Notes';
+        document.body.classList.remove('notes-active');
+    }
+}
+
+function toggleSidebarMenu() {
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+}
+
+function closeSidebarMenu() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+}
+
+// Keyboard navigation (Flashcards only)
 document.addEventListener('keydown', (e) => {
+    if (isNotesMode) return;
+
     if (e.key === 'ArrowLeft') {
         previousCard();
     } else if (e.key === 'ArrowRight') {
@@ -161,6 +269,12 @@ categorySelect.addEventListener('change', (e) => {
     filterByCategory(e.target.value);
 });
 themeToggle.addEventListener('click', toggleTheme);
+
+// New Event Listeners
+modeToggle.addEventListener('click', toggleMode);
+sidebarToggle.addEventListener('click', toggleSidebarMenu);
+closeSidebar.addEventListener('click', closeSidebarMenu);
+overlay.addEventListener('click', closeSidebarMenu);
 
 // Initialize
 initTheme();
