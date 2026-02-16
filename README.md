@@ -1,10 +1,10 @@
 # AWS CCP CLF-C02 2026 Flashcards
 
-A minimalistic flashcard web application to study for the AWS Certified Cloud Practitioner (CLF-C02) exam. Features 45 flashcards with category filtering and light/dark mode.
+A minimalistic flashcard web application to study for the AWS Certified Cloud Practitioner (CLF-C02) exam. Features flashcards with category filtering and light/dark mode.
 
 ## Features
 
-- 📚 45 flashcards covering AWS CCP exam topics
+- 📚 Flashcards covering AWS CCP exam topics
 - 🎯 Category filtering (Intro, Cloud Computing, AWS Cloud Locations, Shared Responsibility)
 - 🌙 Light/Dark mode toggle with localStorage persistence
 - ⌨️ Keyboard navigation (← → arrows, Space/Enter to flip)
@@ -13,13 +13,13 @@ A minimalistic flashcard web application to study for the AWS Certified Cloud Pr
 
 ## Live Demo
 
-🔗 **[View Live Site](https://YOUR-USERNAME.github.io/aws-ccp-flashcards/)**
+🔗 **[View Live Site](https://coderkola.github.io/aws-ccp-clf2-c02-flashcards/)**
 
 ## Local Development
 
 ### Option 1: Simple HTTP Server (Recommended)
 ```bash
-cd aws-ccp-flashcards
+cd aws-ccp-clf2-c02-flashcards
 python3 -m http.server 8000
 ```
 Then open http://localhost:8000
@@ -29,16 +29,16 @@ Simply open `index.html` in your browser (some features may not work due to CORS
 
 ## Deploy to GitHub Pages
 
-1. **Create a new repository** on GitHub (e.g., `aws-ccp-flashcards`)
+1. **Create a new repository** on GitHub (e.g., `aws-ccp-clf2-c02-flashcards`)
 
 2. **Push your code:**
 ```bash
-cd aws-ccp-flashcards
+cd aws-ccp-clf2-c02-flashcards
 git init
 git add .
 git commit -m "Initial commit: AWS CCP flashcard app"
 git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/aws-ccp-flashcards.git
+git remote add origin https://github.com/coderkola/aws-ccp-clf2-c02-flashcards.git
 git push -u origin main
 ```
 
@@ -48,12 +48,12 @@ git push -u origin main
    - Folder: `/ (root)`
    - Click Save
 
-4. **Access your site** at: `https://YOUR-USERNAME.github.io/aws-ccp-flashcards/`
+4. **Access your site** at: `https://coderkola.github.io/aws-ccp-clf2-c02-flashcards/`
 
 ## Project Structure
 
 ```
-aws-ccp-flashcards/
+aws-ccp-clf2-c02-flashcards/
 ├── index.html          # Main page
 ├── flashcards.json     # 45 Q&A pairs organized by category
 ├── static/
