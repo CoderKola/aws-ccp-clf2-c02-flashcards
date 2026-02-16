@@ -236,15 +236,49 @@ function generateSidebarNav() {
     sidebarNav.innerHTML = '';
 
     noteSections.forEach((section, index) => {
-        const navItem = document.createElement('a');
+        // Container for the section link and its subsections
+        const navGroup = document.createElement('div');
+
+        // Main H1 Link
+        const navItem = document.createElement('div'); // Changed to div to contain valid children if needed, but styling allows 'a' behavior
         navItem.className = 'nav-item';
         navItem.textContent = section.title;
         navItem.onclick = () => {
             showNoteSection(index);
+            // Optionally close sidebar on mobile if it's a leaf node interaction, 
+            // but for sections with children, user might want to see children.
+            // For now, consistent behavior: jump to section.
             closeSidebarMenu();
         };
+        navGroup.appendChild(navItem);
 
-        sidebarNav.appendChild(navItem);
+        // Find H2s within this section
+        const subsections = section.element.querySelectorAll('h2');
+        if (subsections.length > 0) {
+            const subList = document.createElement('div');
+            subList.className = 'nav-sub-list';
+
+            subsections.forEach(h2 => {
+                // Ensure H2 has an ID for scrolling
+                if (!h2.id) {
+                    h2.id = `subsection-${h2.textContent.replace(/\s+/g, '-').toLowerCase()}-${Math.random().toString(36).substr(2, 5)}`;
+                }
+
+                const subItem = document.createElement('a');
+                subItem.className = 'nav-sub-item';
+                subItem.textContent = h2.textContent;
+                subItem.onclick = (e) => {
+                    e.stopPropagation(); // Prevent triggering parent click if nested
+                    showNoteSection(index); // Ensure parent section is visible
+                    h2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    closeSidebarMenu();
+                };
+                subList.appendChild(subItem);
+            });
+            navGroup.appendChild(subList);
+        }
+
+        sidebarNav.appendChild(navGroup);
     });
 }
 

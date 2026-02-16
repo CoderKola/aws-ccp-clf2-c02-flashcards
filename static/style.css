@@ -390,7 +390,8 @@ button:disabled:hover {
     font-size: 1.5rem;
     padding: 4px 8px;
     color: var(--text-secondary);
-    display: none; /* Hidden by default, shown in notes mode */
+    display: none;
+    /* Hidden by default, shown in notes mode */
 }
 
 .sidebar-toggle:hover {
@@ -414,7 +415,9 @@ button:disabled:hover {
     line-height: 1.7;
 }
 
-.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
     margin-top: 1.5em;
     margin-bottom: 0.5em;
     font-weight: 600;
@@ -437,7 +440,8 @@ button:disabled:hover {
     margin-bottom: 1em;
 }
 
-.markdown-body ul, .markdown-body ol {
+.markdown-body ul,
+.markdown-body ol {
     margin-bottom: 1em;
     padding-left: 2em;
 }
@@ -471,4 +475,30 @@ body.notes-active .category-filter {
     .notes-container {
         padding: 20px;
     }
+}
+
+/* Nested Navigation Styles */
+.nav-sub-item {
+    padding: 8px 20px 8px 35px;
+    /* Increased left padding for indentation */
+    display: block;
+    color: var(--text-tertiary);
+    /* Slightly lighter color for subsections */
+    text-decoration: none;
+    font-size: 0.85rem;
+    /* Smaller font size */
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+}
+
+.nav-sub-item:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.nav-sub-item.active {
+    color: var(--text-primary);
+    font-weight: 500;
+    /* We don't necessarily need a background for active sub-items, but can add if desired */
 }
