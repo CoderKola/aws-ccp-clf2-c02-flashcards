@@ -155,6 +155,12 @@ function nextCard() {
 
 // --- Notes Features ---
 
+let noteSections = [];
+const prevNoteButton = document.getElementById('prev-note-btn');
+const nextNoteButton = document.getElementById('next-note-btn');
+const notesControls = document.querySelector('.notes-controls');
+let currentNoteIndex = 0;
+
 async function loadNotes() {
     try {
         const response = await fetch('notes.md');
@@ -168,35 +174,73 @@ async function loadNotes() {
 }
 
 function renderNotes(markdown) {
-    // Basic Markdown rendering is handled by marked.js which is included in index.html
-    // however, we want to intercept headers to build the sidebar navigation
+    // Parse markdown using marked.js
+    const htmlContent = marked.parse(markdown);
 
-    // Parse markdown to HTML
-    notesContent.innerHTML = marked.parse(markdown);
+    // Create a temporary container to manipulate the HTML
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlContent;
 
-    // Generate Sidebar Navigation
-    generateSidebarNav();
+    notesContent.innerHTML = '';
+    noteSections = [];
+
+    // Split content by H1 tags
+    const children = Array.from(tempDiv.children);
+    let currentSection = null;
+
+    // Handle case where there are no H1s (create one default section)
+    if (children.length > 0 && children[0].tagName !== 'H1') {
+        currentSection = createSectionElement(0);
+        notesContent.appendChild(currentSection);
+        noteSections.push({
+            element: currentSection,
+            title: 'Introduction'
+        });
+    }
+
+    children.forEach(child => {
+        if (child.tagName === 'H1') {
+            const index = noteSections.length;
+            currentSection = createSectionElement(index);
+            notesContent.appendChild(currentSection);
+            noteSections.push({
+                element: currentSection,
+                title: child.textContent
+            });
+        }
+
+        if (currentSection) {
+            currentSection.appendChild(child.cloneNode(true));
+        }
+    });
+
+    if (noteSections.length > 0) {
+        generateSidebarNav();
+        notesControls.style.display = 'flex';
+        showNoteSection(0);
+    } else {
+        notesContent.innerHTML = '<p class="placeholder-text">No content found in notes.md</p>';
+        notesControls.style.display = 'none';
+    }
+}
+
+function createSectionElement(index) {
+    const div = document.createElement('div');
+    div.className = 'note-section';
+    div.id = `note-section-${index}`;
+    div.style.display = 'none';
+    return div;
 }
 
 function generateSidebarNav() {
     sidebarNav.innerHTML = '';
-    const headers = notesContent.querySelectorAll('h1');
 
-    if (headers.length === 0) {
-        sidebarNav.innerHTML = '<p style="padding: 20px; color: var(--text-muted);">No sections found.</p>';
-        return;
-    }
-
-    headers.forEach((header, index) => {
-        // Add ID to header for scrolling
-        const headerId = `section-${index}`;
-        header.id = headerId;
-
+    noteSections.forEach((section, index) => {
         const navItem = document.createElement('a');
         navItem.className = 'nav-item';
-        navItem.textContent = header.textContent;
+        navItem.textContent = section.title;
         navItem.onclick = () => {
-            scrollToSection(headerId);
+            showNoteSection(index);
             closeSidebarMenu();
         };
 
@@ -204,17 +248,51 @@ function generateSidebarNav() {
     });
 }
 
-function scrollToSection(id) {
-    const element = document.getElementById(id);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+function showNoteSection(index) {
+    if (index < 0 || index >= noteSections.length) return;
 
-        // Update active state in sidebar
-        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+    currentNoteIndex = index;
 
-        // We can't easily map back to the nav item without more complex logic, 
-        // but for now, the scrolling is the key part.
+    // Hide all sections
+    noteSections.forEach(section => {
+        section.element.style.display = 'none';
+    });
+
+    // Show current section
+    noteSections[currentNoteIndex].element.style.display = 'block';
+
+    // Update active state in sidebar
+    document.querySelectorAll('.nav-item').forEach((item, i) => {
+        if (i === currentNoteIndex) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
+        }
+    });
+
+    // Update buttons
+    prevNoteButton.disabled = currentNoteIndex === 0;
+    nextNoteButton.disabled = currentNoteIndex === noteSections.length - 1;
+
+    // Scroll to top
+    notesContent.scrollTop = 0;
+}
+
+function nextNoteSection() {
+    if (currentNoteIndex < noteSections.length - 1) {
+        showNoteSection(currentNoteIndex + 1);
     }
+}
+
+function prevNoteSection() {
+    if (currentNoteIndex > 0) {
+        showNoteSection(currentNoteIndex - 1);
+    }
+}
+
+function scrollToSection(id) {
+    // Deprecated in favor of showNoteSection
+    // Keeping for reference if needed, but not used in new logic
 }
 
 function toggleMode() {
@@ -228,12 +306,19 @@ function toggleMode() {
 
         if (!notesData) {
             loadNotes();
+        } else {
+            // If notes are already loaded, ensure controls are visible if there are sections
+            if (noteSections.length > 0) {
+                notesControls.style.display = 'flex';
+                showNoteSection(currentNoteIndex); // Re-display current section
+            }
         }
     } else {
         flashcardMode.style.display = 'block';
         notesMode.style.display = 'none';
         modeToggle.textContent = 'Switch to Notes';
         document.body.classList.remove('notes-active');
+        notesControls.style.display = 'none'; // Hide notes controls when switching back to flashcards
     }
 }
 
@@ -247,9 +332,16 @@ function closeSidebarMenu() {
     overlay.classList.remove('active');
 }
 
-// Keyboard navigation (Flashcards only)
+// Keyboard navigation
 document.addEventListener('keydown', (e) => {
-    if (isNotesMode) return;
+    if (isNotesMode) {
+        if (e.key === 'ArrowLeft') {
+            prevNoteSection();
+        } else if (e.key === 'ArrowRight') {
+            nextNoteSection();
+        }
+        return;
+    }
 
     if (e.key === 'ArrowLeft') {
         previousCard();
@@ -275,6 +367,9 @@ modeToggle.addEventListener('click', toggleMode);
 sidebarToggle.addEventListener('click', toggleSidebarMenu);
 closeSidebar.addEventListener('click', closeSidebarMenu);
 overlay.addEventListener('click', closeSidebarMenu);
+
+prevNoteButton.addEventListener('click', prevNoteSection);
+nextNoteButton.addEventListener('click', nextNoteSection);
 
 // Initialize
 initTheme();
