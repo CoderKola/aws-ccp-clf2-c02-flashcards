@@ -12,4 +12,11 @@ Then, the server will then reply to us allowing us to view the website.
 ## How do clients find the server and vice-versa?
 
 They both require an IP address. An IP address is a unique identifier for a device on a network. 
-(i.e You (cleint) sending letter to a house address / consider the post-office as a network / address you put will be routed to the destination (server))
+(i.e You (client) sending letter to a house address / consider the post-office as a network / address you put will be routed to the destination (server))
+
+## What is a server composed of?
+A server contains a CPU, memory (RAM), storage, and network interface.
+
+* Computational Brain: CPU and RAM
+* Data Storage: (Long-term) Database, (Short-term) Files
+* Networking: Routers, switch, DNS server
