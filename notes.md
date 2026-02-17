@@ -196,4 +196,55 @@ AWS has 3 pricing fundamentals following the pay-as-you-go pricing model
 
 <i> Any data that goes in AWS is free </i>
 
+# 1.5 - Global Infrastructure
+* AWS Region
+* AWS Availabiility Zones
+* AWS Data Centers
+* AWS Edge Locations/Points of Presence (POPs)
 
+Reference: https://aws.amazon.com/about-aws/global-infrastructure
+
+
+## AWS Regions
+* AWS has **Regions** all around the world
+* Names can be us-east-1, eu-west-3
+* A region is a **cluster of data centers**
+* Most AWS services are region-scoped
+
+How do you choose an AWS Region?
+* **Compliance with data governance and legal requirements**
+    * Data never leaves the region without your explicit permission
+* **Proximity to customers**: reduce latency
+* **Available services within a Region**: new services and new features aren't availalbe in every Region
+* **Pricing**: Prices varies region by region and AWS is transparent in the service pricing page
+
+## AWS Availability Zones
+* Each region has many availability zones (AZ) - usually 3
+    * Min is 3
+    * Max is 6
+* Each AZ is an isolated location with one or more data centers. Has their own power, networking and connectivity.
+* AZs are connected with high-bandwidth, ultra-low latency networking
+Ex: AWS Region in Sydney
+* Region: ap-southeast-2
+* Availability Zones: ap-southeast-2a, ap-southeast-2b, ap-southeast-2c
+
+## AWS Points of Presence (Edge Locations)
+* 400+ Edge Locations & 10+ Regional Caches in 90+ cities across 40+ countries
+* Content is delivered to end users with lwoer latency
+
+## Some Services
+* AWS has Global Services:
+    * Identitiy and Access Management (IAM)
+    * Route 53 (DNS Service)
+    * CloudFront (Content Delivery Network)
+    * WAF (Web Application Firewall)
+* Most AWS Services are Region-Scoped
+    * Amazon EC2 (IaaS)
+    * Elastic Beanstalk (PaaS)
+    * Lambda (FaaS)
+    * Rekognition (SaaS)
+
+# 1.6 - Shared Responsibility Model
+This is your responsbility vs. AWS
+* Customer = Responsible for the security <span style="color:red">**in**</span> the cloud
+* AWS = Responsible for the security <span style="color:red">**of**</span> the cloud
