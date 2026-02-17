@@ -57,10 +57,57 @@ A server contains a CPU, memory (RAM), storage, and network interface.
 How to externalize all this? --> Cloud
 
 # 1.2 - Cloud Computing
-* Cloud computing is the *on-demand delivery* of compute power, database storage, applications and other IT resource
-* Through a cloud services platform with *pay-as-you-go pricing*
+* Cloud computing is the *on-demand delivery* of compute power, database storage, applications and other IT resource (*pay-as-you-go pricing* model)
 * You can *provision exactly the right type and size of computing* resources you need
 * You can access as many resources as you need, *almost instantly*
 * Simple way to access servers, storage, databases and a set of application services
 
 <i> AWS owns and maintains the network-connected hardware required for these applicaiton services, while you provision and use what you need via a web application. </i>
+
+## Deployment Models
+* Private Cloud
+    * Cloud services used by a single organization
+    * Complete control
+    * Security for sensitive applications
+    * Meet specific business requirements
+    * Ex: rackspace
+
+* Public Cloud
+    * Cloud service owned and operated by a third party
+    * Services delivered over the internet
+    * Six Advantages
+        1. TCO ↓ & CAPEX ↓ | OPEX ↑
+        2. Benefit from massive economies of AWS growing to large scale
+        3. Stop guessing capacity and scale based on actual usage
+        4. Increase speed and agility
+        5. Stop spending money running and maintaining data centers
+        6. Go global with ease leveraging AWS global infrastructure
+    * Ex: Azure, AWS, Google Cloud
+
+* Hybrid Cloud
+    * Keep some servers on premise and extend some capabilities to the cloud
+    * Control over sensitive assets in your infrastructure
+    * Flexibility and cost-effectiveness of the public cloud
+
+## 5 Characteristics of Cloud Computing
+1. On-demand self-service
+    * Users can provision resources and use them without human interaction from service provider
+2. Broad network access
+    * Resources available over the network and can be accessed by diverse client platforms
+3. Rapid elasticity and scalability
+    * Automatically and quickly acquire and dispose resources when needed
+    * Quickly and easily scaale based on demands
+4. Multi-tenancy and resource pooling
+    * Multiple customers can share the same infrastructure and applications with security and privacy
+    * Multiple customers are serviced from the same physical resources
+5. Measured services
+    * Usage is mesured
+    * Users pay correctly for what they have used
+
+## Problems Solved by the Cloud
+* **Flexibility**: Change resource types when needed
+* **Cost-Effective**: Pay for what you use
+* **Scability**: Accomodate larger loads by making hardware stronger or adding additional nodes
+* **Elasticity**: Ability to scale out and scale-in when needed
+* **High-availability and fault-tolerance**: build across data centers
+* **Agility**: Rapidly develop, test and launch software applications
