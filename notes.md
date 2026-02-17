@@ -247,4 +247,22 @@ Ex: AWS Region in Sydney
 # 1.6 - Shared Responsibility Model
 This is your responsbility vs. AWS
 * Customer = Responsible for the security <span style="color:red">**in**</span> the cloud
+    * Customer Data
+    * Platform, Applications, Identity and Access Management (IAM)
+    * O/S, Network & Firewall Configuration
+    * Client-side Data Encryption
+    * Data Integrity Auth
+    * Server-side Encryption (File System and/or data)
+    * Networking Traffic Protection (Encryption, Integrity, Itentity)
+
 * AWS = Responsible for the security <span style="color:red">**of**</span> the cloud
+    * Sofware
+        * Compute
+        * Storage
+        * Database
+        * Networking
+    * Hardware/AWS Global Infrastructure
+        * Regions
+        * Availability Zones
+        * Edge Locations
+
