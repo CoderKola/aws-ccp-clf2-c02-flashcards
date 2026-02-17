@@ -111,3 +111,89 @@ How to externalize all this? --> Cloud
 * **Elasticity**: Ability to scale out and scale-in when needed
 * **High-availability and fault-tolerance**: build across data centers
 * **Agility**: Rapidly develop, test and launch software applications
+
+# 1.3 - Type of Cloud Computing
+
+## IaaS (Infrastructure as a Service)
+    * Provides building blocks for lcoud IT
+    * Provides networking, computers, data storage space
+    * High level of flexibility
+    * Easy parallel with traditional on-premise IT
+
+## PaaS (Platform as a Service)
+    * Remove need to build and maintain the underlying infrastructure
+    * Focus on deployment and management of applications
+
+## SaaS (Software as a Service)
+    * Completed product that is run and managed by the service provider
+
+## On-Premises Management
+You manage:
+* Applications
+* Data
+* Runtime
+* Middleware
+* O/S
+* Virtualizaation
+* Servers
+* Storage
+* Networking
+
+## IaaS Management
+You manage:
+* Applications
+* Data
+* Runtime
+* Middleware
+* O/S 
+
+You don't manage:
+* Virtualization
+* Servers
+* Storage
+* Networking
+
+Ex: AWS EC2 <br>
+Ex: GCP, Azure, Rackspace, Digital Ocean, Linode
+
+## PaaS Management
+You Manage:
+* Applicaiton
+* Data
+
+You don't manage:
+* Runtime
+* Middleware
+* O/S
+* Virtualization
+* Storage
+* Networking
+
+Ex: AWS Elastic Beanstalk
+Ex: Heroku, Google App Engine (GCP), Windows Azure (Microsoft)
+
+## SaaS Management
+You don't manage anything
+
+* Applications
+* Data
+* Runtime
+* Middleware
+* O/S
+* Virtualization
+* Servers
+* Storage
+* Networking
+
+Ex: AWS Rekognition for ML
+Ex: Google Apps (Gmail), Dropbox, Zoom
+
+# 1.4 - Pricing Fundamentals
+AWS has 3 pricing fundamentals following the pay-as-you-go pricing model
+* **Compute**: Pay for compute time
+* **Storage**: Pay for data stored in cloud
+* **Data Transfer OUT**: Pay for data transfer out of the cloud
+
+<i> Any data that goes in AWS is free </i>
+
+
