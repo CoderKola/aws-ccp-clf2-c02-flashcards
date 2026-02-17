@@ -1,7 +1,7 @@
 # Introduction
 Welcome to your notes! Please use the sidebar to navigate through the notes. This is a feature that allows you to read your markdown notes directly in the flashcard app.
 
-# 1. Traditional IT Infrastructure
+# 1.1 - Traditional IT Infrastructure
 ## How websites work
 Simplified explanation: We have a server hosted somewhere and we, as a web browser, wants to get access to the server to visualize a website. 
 
@@ -56,4 +56,11 @@ A server contains a CPU, memory (RAM), storage, and network interface.
 
 How to externalize all this? --> Cloud
 
-# 2. Cloud Computing
+# 1.2 - Cloud Computing
+* Cloud computing is the *on-demand delivery* of compute power, database storage, applications and other IT resource
+* Through a cloud services platform with *pay-as-you-go pricing*
+* You can *provision exactly the right type and size of computing* resources you need
+* You can access as many resources as you need, *almost instantly*
+* Simple way to access servers, storage, databases and a set of application services
+
+<i> AWS owns and maintains the network-connected hardware required for these applicaiton services, while you provision and use what you need via a web application. </i>
